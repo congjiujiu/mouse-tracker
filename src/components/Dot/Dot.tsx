@@ -24,8 +24,8 @@ interface PropTypes {
 
 interface StateTypes {
   direction: Array<Direction>;
-  left: number;
-  top: number;
+  tx: number;
+  ty: number;
   color: string;
 }
 
@@ -77,8 +77,8 @@ class Dot extends React.Component<PropTypes, StateTypes> {
           dy: _distanceY
         }
       ],
-      left: this.props.dot.x,
-      top: this.props.dot.y,
+      tx: this.props.dot.x,
+      ty: this.props.dot.y,
       color: this.props.dot.color,
     };
   }
@@ -90,13 +90,13 @@ class Dot extends React.Component<PropTypes, StateTypes> {
 
     setInterval(
       () => {
-        let { left, top } = this.state;
-        left += dx;
-        top += dy;
+        let { tx, ty } = this.state;
+        tx += dx;
+        ty += dy;
 
         this.setState({
-          left,
-          top,
+          tx,
+          ty,
         });
       },
       20
@@ -107,7 +107,7 @@ class Dot extends React.Component<PropTypes, StateTypes> {
     return (
       <div
         className="dot"
-        style={{ left: this.state.left + 'px', top: this.state.top + 'px', backgroundColor: this.state.color }}
+        style={{ transform: 'translate3d(' + this.state.tx + 'px, ' + this.state.ty + 'px, 0)', backgroundColor: this.state.color }}
       />
     );
   }

@@ -8,10 +8,12 @@
 .dot {
     width: 10px;
     height: 10px;
+    position: absolute;
+    top: 0;
+    left: 0;
     border: none;
     border-radius: 50%;
     background-color: aqua;
     display: inline-block;
-    position: absolute;
     animation: 2s ease-out 0s forwards scale;
 }
